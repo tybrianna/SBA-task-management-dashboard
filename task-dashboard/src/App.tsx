@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Task } from "./types";
+import type { Task } from "./types";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import "./styles.css";
@@ -9,7 +9,6 @@ const App: React.FC = () => {
   const [search, setSearch] = useState("");
   const [sortBy, setSortBy] = useState<"newest" | "oldest" | "alphabetical">("newest");
 
-  // Add task
   const addTask = (text: string) => {
     const newTask: Task = {
       id: Date.now(),
@@ -20,12 +19,10 @@ const App: React.FC = () => {
     setTasks((prev) => [newTask, ...prev]);
   };
 
-  // Delete task
   const deleteTask = (id: number) => {
     setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
-  // Toggle task status
   const toggleTask = (id: number) => {
     setTasks((prev) =>
       prev.map((task) =>
@@ -34,7 +31,6 @@ const App: React.FC = () => {
     );
   };
 
-  // Filter + Sort
   const filteredTasks = useMemo(() => {
     let filtered = tasks.filter((task) =>
       task.text.toLowerCase().includes(search.toLowerCase())
