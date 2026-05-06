@@ -1,0 +1,57 @@
+.container {
+  max-width: 500px;
+  margin: auto;
+  font-family: Arial;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* THEMES */
+.container.light {
+  background: #ffffff;
+  color: #000;
+}
+
+.container.dark {
+  background: #121212;
+  color: #fff;
+}
+
+/* Smooth transitions */
+button, input, li {
+  transition: all 0.2s ease;
+}
+
+/* Task */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.task-item:hover {
+  transform: scale(1.02);
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Dark mode tweaks */
+.container.dark .task-item {
+  border-color: #333;
+}
+
+/* Inputs */
+input, select {
+  padding: 8px;
+  border-radius: 5px;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+}
